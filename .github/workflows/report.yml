@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: Download repository files
         uses: actions/checkout@v4
+      - name: Run create-summary script
+        run: bash scripts/create-summary.sh
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: seminar-summary
+          path: build/reports/seminar-summary.txt
 
       # TODO:
       # 1. Запусти bash-скрипт scripts/create-summary.sh
